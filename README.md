@@ -1,48 +1,65 @@
-# NillyMedia Lite — Ultra-Light Native Media Player & 1-Click Voice Recorder
+# NillyMedia Lite | Media Player & Recorder
 
-> **Πανάλαφρος (μόλις 50,5 KB!), 100% Native Windows 10/11 Media Player + Ηχογράφηση Φωνής σε 1 παράθυρο.**
-> **Αντικαθιστά Windows Media Player (`36,3 MB`) + Windows Sound Recorder (`9,5 MB`) = `45,8 MB` με μόλις `0,05 MB` (~930× μικρότερο!) και `0 MB` background RAM!**
->
-> **created by [Nilly graphics (Sotiris Christos)](https://nillygraphics.com/)**
+**Windows 10/11 · MIT · Δωρεάν 0€ / Free €0**
 
----
+Created by [Nilly graphics (Nillygraphics · Sotiris Christos)](https://nillygraphics.com/).
 
-## Γιατί NillyMedia Lite;
+[Ελληνική σελίδα προϊόντος](https://nillygraphics.com/product/nillymedia-lite/el/) · [English product page](https://nillygraphics.com/product/nillymedia-lite/en/) · [GitHub Release v1.0](https://github.com/nillynp/nillymedia-lite/releases/tag/v1.0)
 
-| Λύση | Μέγεθος στον δίσκο | Background RAM | Video & Audio Player | 1-Κλικ Voice Recorder | Zero Admin Portable |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Windows Media Player + Sound Recorder | **45,8 MB** *(2 ξεχωριστά apps)* | WinUI / UWP | Ναι | Ξεχωριστό app | Όχι |
-| VLC Media Player | **~160 MB** | 0 MB | Ναι | Όχι | Όχι |
-| **NillyMedia Lite** | **0,05 MB (50,5 KB)** | **0 MB** | **Ναι (GPU Native)** | **Ναι (44.1kHz WAV + VU)** | **Ναι (100% Portable)** |
+## Ελληνικά
 
----
+Αναπαραγωγή βίντεο και μουσικής, playlists και ηχογράφηση WAV.
 
-## 2 Εργαλεία σε 1 (Cinema Dark UI — 0 Εξωτερικά DLLs)
+[Κατέβασε το ενημερωμένο ZIP](https://github.com/nillynp/nillymedia-lite/releases/download/v1.0/NillyMedia-Lite-v1.0-Portable-SEO.zip)
 
-### 1. `▶ Player` — Αστραπιαίος Video & Audio Player
-- **Hardware-Accelerated Native Playback:** `MP4`, `M4V`, `MOV`, `WMV`, `AVI`, `MKV`, `WebM`, `MP3`, `WAV`, `M4A`, `AAC`, `WMA`, `FLAC`, `OGG` *(χρησιμοποιεί τους εγγενείς codecs των Windows 10/11)*.
-- **Έξυπνη Αυτόματη Playlist (`P`):** Ανοίγεις 1 αρχείο και φορτώνει αυτόματα τα υπόλοιπα media του ίδιου φακέλου για άμεσο `Next / Prev`!
-- **Πλήρης Έλεγχος:** Drag & Drop αρχείων/φακέλων, Seek slider με timecode, Ταχύτητα **`0.5× – 2.0×`**, **Loop**, **Mute (`M`)**, **Always-on-Top Pin (`T`)**, **Fullscreen (`F11` ή διπλό κλικ)**, `Space` (Play/Pause), `← / →` (±5s), `↑ / ↓` (Ένταση).
+Περίπου 52 KB για το εκτελέσιμο. Το αρχικό Portable ZIP είναι 32,6 KiB. Το ZIP περιέχει τον κώδικα και τον installer. Ο installer δημιουργεί το εκτελέσιμο τοπικά.
 
-### 2. `● Recorder` — 1-Κλικ Ηχογράφηση Φωνής
-- Καθαρή **44.1 kHz 16-bit WAV** ηχογράφηση μέσω εγγενούς Windows `winmm.dll` (0 bloat!).
-- **Ζωντανό Microphone VU Level Meter**, χρονομετρητής, **Pause / Resume** & αυτόματη αποθήκευση στο `Documents\Sound Recordings`.
-- Άμεση λίστα όλων των ηχογραφήσεών σου — **διπλό κλικ** για να την ακούσεις επί τόπου στον player!
+1. Αποσυμπίεσε το ZIP σε δικό του φάκελο.
+2. Τρέξε το `Install_NillyMediaLite.bat` για την εγκατάσταση στον λογαριασμό σου.
 
----
+### Συχνές ερωτήσεις
 
-## Εγκατάσταση σε ΟΠΟΙΟΔΗΠΟΤΕ Windows 10/11 PC (100% Portable · Χωρίς Admin)
+**Ποια αρχεία αναπαράγει το NillyMedia Lite;**
 
-1. Κατέβασε το **`NillyMedia-Lite-v1.0-Portable.zip`** και αποσυμπίεσέ το όπου θες (π.χ. `C:\Tools\NillyMediaLite`).
-2. Τρέξε με διπλό κλικ το **`Install_NillyMediaLite.bat`** *(Zero Admin!)*.
-   - Μεταγλωττίζει αυτόματα το 100% native **`NillyMediaLite.exe`**, εγγράφει **14 media formats** στο `Άνοιγμα με...` & στις `Προεπιλεγμένες Εφαρμογές`, και φτιάχνει συντομεύσεις σε Επιφάνεια Εργασίας & Start Menu.
+Ανοίγει αρχεία βίντεο και ήχου όπως MP4, MP3, WAV και FLAC. Η αναπαραγωγή κάθε αρχείου εξαρτάται από τους codecs των Windows.
 
-### Απεγκατάσταση
-Τρέξε το **`Uninstall_NillyMediaLite.bat`** για καθαρή αφαίρεση εγγραφών & συντομεύσεων.
+**Πού αποθηκεύονται οι ηχογραφήσεις;**
 
----
+Όταν σταματήσεις την εγγραφή, αποθηκεύεται αρχείο WAV 44,1 kHz, 16 bit στον φάκελο Documents/Sound Recordings.
 
-## Πιστώσεις & Άδεια
-- **Δημιουργός:** **created by [Nilly graphics (Sotiris Christos)](https://nillygraphics.com/)**
-- **Άδεια:** MIT License — **100% Δωρεάν (0€)**
-- **Οικοσύστημα Nilly (Δωρεάν Εργαλεία):** [NillyView Pro](https://github.com/nillynp/nillyview-pro) · [NillyCode Pro](https://github.com/nillynp/nillycode-pro) · [NillyCalc Pro](https://github.com/nillynp/nillycalc-pro) · [NillyBatch Pro](https://github.com/nillynp/nillybatch-pro) · [NillyDoc Pro](https://github.com/nillynp/nillydoc-pro) · [Nilly PC Manager](https://github.com/nillynp/nilly-pc-manager-tools)
+**Τι περιέχει το portable ZIP;**
+
+Περιέχει τον πηγαίο κώδικα και τον installer που δημιουργεί το εκτελέσιμο τοπικά με το .NET Framework των Windows.
+
+## English
+
+Video and audio playback, folder playlists and WAV recording.
+
+[Download the updated ZIP](https://github.com/nillynp/nillymedia-lite/releases/download/v1.0/NillyMedia-Lite-v1.0-Portable-SEO.zip)
+
+The executable is approximately 52 KB. The original portable ZIP is 32.6 KiB. The ZIP includes the source and an installer that builds the executable locally.
+
+1. Extract the ZIP to its own folder.
+2. Run `Install_NillyMediaLite.bat` to set it up for your Windows user.
+
+### Frequently asked questions
+
+**What files does NillyMedia Lite play?**
+
+It opens video and audio files such as MP4, MP3, WAV and FLAC. Playback depends on the codecs available in Windows.
+
+**Where are voice recordings saved?**
+
+When you stop recording, the app saves a 44.1 kHz, 16-bit WAV file to Documents/Sound Recordings.
+
+**What is included in the portable ZIP?**
+
+It includes the source and installer, which uses Windows .NET Framework to compile the executable locally.
+
+## Περισσότερα εργαλεία / More tools
+
+[NillyCode Pro](https://github.com/nillynp/nillycode-pro) · [NillyCalc Pro](https://github.com/nillynp/nillycalc-pro) · [NillyBatch Pro](https://github.com/nillynp/nillybatch-pro)
+
+## License
+
+MIT. See [LICENSE](LICENSE).
