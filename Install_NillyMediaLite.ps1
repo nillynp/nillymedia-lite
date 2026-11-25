@@ -92,7 +92,7 @@ Set-ItemProperty -Path 'HKCU:\Software\RegisteredApplications' -Name 'NillyMedia
 
 try {
     Add-Type -Namespace NillyMediaShell -Name Notify -MemberDefinition '[System.Runtime.InteropServices.DllImport("shell32.dll")] public static extern void SHChangeNotify(int wEventId, int uFlags, System.IntPtr dwItem1, System.IntPtr dwItem2);' -ErrorAction SilentlyContinue
-    [NillyMediaShell.Notify]::SHChangeNotify(0x08000000, 0, [IntPtr]::Zero, [IntPtr]::Zero)
+    [NillyMediaShell.Notify]::SHChangeNotify(0x08000000, 0x2000, [IntPtr]::Zero, [IntPtr]::Zero)
 } catch {}
 
 Write-Host ("        OK -> Εγγράφηκαν " + $mediaExts.Count + " formats στο Άνοιγμα με... & στις Προεπιλεγμένες Εφαρμογές!") -ForegroundColor Green
