@@ -28,8 +28,8 @@ using Microsoft.Win32;
 [assembly: AssemblyCompany("Nilly graphics (Sotiris Christos) — https://nillygraphics.com/")]
 [assembly: AssemblyProduct("NillyMedia Lite")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 Nilly graphics (Sotiris Christos)")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
 
 namespace NillyMediaLite
 {
@@ -40,6 +40,22 @@ namespace NillyMediaLite
     {
         [DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int val, int size);
+
+        [DllImport("kernel32.dll")]
+        private static extern IntPtr GetCurrentProcess();
+
+        [DllImport("kernel32.dll")]
+        private static extern bool SetProcessWorkingSetSize(IntPtr hProcess, IntPtr minSize, IntPtr maxSize);
+
+        public static void TrimMemory()
+        {
+            try
+            {
+                GC.Collect(GC.MaxGeneration, GCCollectionMode.Optimized, false);
+                SetProcessWorkingSetSize(GetCurrentProcess(), (IntPtr)(-1), (IntPtr)(-1));
+            }
+            catch { }
+        }
 
         [DllImport("winmm.dll", CharSet = CharSet.Unicode)]
         public static extern int mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
@@ -939,6 +955,7 @@ namespace NillyMediaLite
                 return RunSmokeTest(app, args.Length > 1 ? args[1] : null);
 
             MainWindow win = new MainWindow(args);
+            win.Loaded += delegate { Native.TrimMemory(); };
             app.Run(win);
             return 0;
         }
