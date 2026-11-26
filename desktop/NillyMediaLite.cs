@@ -28,8 +28,8 @@ using Microsoft.Win32;
 [assembly: AssemblyCompany("Nilly graphics (Sotiris Christos) — https://nillygraphics.com/")]
 [assembly: AssemblyProduct("NillyMedia Lite")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 Nilly graphics (Sotiris Christos)")]
-[assembly: AssemblyVersion("1.0.2.0")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.3.0")]
+[assembly: AssemblyFileVersion("1.0.3.0")]
 
 namespace NillyMediaLite
 {
@@ -501,13 +501,13 @@ namespace NillyMediaLite
             _btnSpeed.Click += delegate { CycleSpeed(); };
             _btnLoop = MakeCtrlBtn("Loop", 46);
             _btnLoop.Click += delegate { ToggleLoop(); };
-            _btnMute = MakeCtrlBtn("🔊", 34);
+            _btnMute = MakeCtrlBtn("♪", 34);
             _btnMute.Click += delegate { ToggleMute(); };
             _volSlider = new Slider { Minimum = 0, Maximum = 1, Value = 0.85, Width = 88, VerticalAlignment = VerticalAlignment.Center, IsMoveToPointEnabled = true };
             _volSlider.ValueChanged += delegate
             {
                 _media.Volume = _volSlider.Value;
-                if (_media.IsMuted && _volSlider.Value > 0) { _media.IsMuted = false; _btnMute.Content = "🔊"; }
+                if (_media.IsMuted && _volSlider.Value > 0) { _media.IsMuted = false; _btnMute.Content = "♪"; }
             };
             rightCtrl.Children.Add(_btnSpeed); rightCtrl.Children.Add(_btnLoop); rightCtrl.Children.Add(_btnMute); rightCtrl.Children.Add(_volSlider);
             Grid.SetColumn(rightCtrl, 2);
@@ -838,7 +838,7 @@ namespace NillyMediaLite
         private void ToggleMute()
         {
             _media.IsMuted = !_media.IsMuted;
-            _btnMute.Content = _media.IsMuted ? "🔇" : "🔊";
+            _btnMute.Content = _media.IsMuted ? "×" : "♪";
         }
 
         private void TogglePlaylist()
