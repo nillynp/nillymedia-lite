@@ -28,8 +28,8 @@ using Microsoft.Win32;
 [assembly: AssemblyCompany("Nilly graphics (Sotiris Christos) — https://nillygraphics.com/")]
 [assembly: AssemblyProduct("NillyMedia Lite")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 Nilly graphics (Sotiris Christos)")]
-[assembly: AssemblyVersion("1.0.3.0")]
-[assembly: AssemblyFileVersion("1.0.3.0")]
+[assembly: AssemblyVersion("1.0.4.0")]
+[assembly: AssemblyFileVersion("1.0.4.0")]
 
 namespace NillyMediaLite
 {
@@ -296,12 +296,12 @@ namespace NillyMediaLite
                 e.Handled = true;
             };
             this.KeyDown += OnWindowKeyDown;
-            this.Closing += delegate { _rec.Cancel(); try { _media.Stop(); _media.Close(); } catch { } };
+            this.StateChanged += delegate { SyncTimerState(); };
+            this.Closing += delegate { if (_timer != null) _timer.Stop(); _rec.Cancel(); try { _media.Stop(); _media.Close(); } catch { } };
 
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromMilliseconds(120);
             _timer.Tick += OnTick;
-            _timer.Start();
 
             if (args != null && args.Length > 0)
             {
@@ -406,6 +406,9 @@ namespace NillyMediaLite
             _media.MediaEnded += OnMediaEnded;
             _media.MediaFailed += delegate(object s, ExceptionRoutedEventArgs e)
             {
+                _isPlaying = false;
+                _btnPlay.Content = "▶";
+                SyncTimerState();
                 _lblAudioTitle.Text = "Αδυναμία αναπαραγωγής αρχείου";
                 _lblAudioMeta.Text = e.ErrorException != null ? e.ErrorException.Message : "Μη υποστηριζόμενος codec.";
                 _audioOverlay.Visibility = Visibility.Visible;
@@ -623,6 +626,7 @@ namespace NillyMediaLite
                     _btnRecPause.Content = "❚❚ Pause";
                     _lblRecStatus.Text = "● Ηχογράφηση σε εξέλιξη...";
                     _lblRecStatus.Foreground = AccentPink;
+                    SyncTimerState();
                 }
                 else
                 {
@@ -635,6 +639,7 @@ namespace NillyMediaLite
                 string file = System.IO.Path.Combine(RecordingsDir, "Recording_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".wav");
                 string err;
                 bool ok = _rec.StopAndSave(file, out err);
+                SyncTimerState();
                 _btnRecStartStop.Content = "● Record";
                 _btnRecPause.IsEnabled = false;
                 _vuFill.Width = 0;
@@ -764,6 +769,15 @@ namespace NillyMediaLite
             _media.Play();
             _isPlaying = true;
             _btnPlay.Content = "❚❚";
+            SyncTimerState();
+        }
+
+        private void SyncTimerState()
+        {
+            if (_timer == null) return;
+            bool need = _rec.IsRecording || (_isPlaying && this.WindowState != WindowState.Minimized);
+            if (need && !_timer.IsEnabled) _timer.Start();
+            else if (!need && _timer.IsEnabled) _timer.Stop();
         }
 
         private void OnMediaOpened(object sender, RoutedEventArgs e)
@@ -793,6 +807,7 @@ namespace NillyMediaLite
             {
                 _isPlaying = false;
                 _btnPlay.Content = "▶";
+                SyncTimerState();
             }
         }
 
@@ -801,6 +816,7 @@ namespace NillyMediaLite
             if (_playlist.Count == 0) { PromptOpenFiles(); return; }
             if (_isPlaying) { _media.Pause(); _isPlaying = false; _btnPlay.Content = "▶"; }
             else { _media.Play(); _isPlaying = true; _btnPlay.Content = "❚❚"; }
+            SyncTimerState();
         }
 
         private void StopPlayback()
@@ -810,6 +826,7 @@ namespace NillyMediaLite
             _btnPlay.Content = "▶";
             _seekSlider.Value = 0;
             _lblTimeCur.Text = "00:00";
+            SyncTimerState();
         }
 
         private void PlayNext() { if (_playlist.Count > 0) PlayIndex((_playIdx + 1) % _playlist.Count); }
