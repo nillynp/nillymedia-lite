@@ -28,8 +28,8 @@ using Microsoft.Win32;
 [assembly: AssemblyCompany("Nilly graphics (Sotiris Christos) — https://nillygraphics.com/")]
 [assembly: AssemblyProduct("NillyMedia Lite")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 Nilly graphics (Sotiris Christos)")]
-[assembly: AssemblyVersion("1.0.4.0")]
-[assembly: AssemblyFileVersion("1.0.4.0")]
+[assembly: AssemblyVersion("1.0.5.0")]
+[assembly: AssemblyFileVersion("1.0.5.0")]
 
 namespace NillyMediaLite
 {
@@ -213,18 +213,36 @@ namespace NillyMediaLite
             ".mp3", ".wav", ".m4a", ".aac", ".wma", ".flac", ".ogg"
         };
 
-        // Brushes (Cinema Dark Studio palette)
-        private static readonly SolidColorBrush BgWindow = new SolidColorBrush(Color.FromRgb(22, 22, 24));
-        private static readonly SolidColorBrush BgBar = new SolidColorBrush(Color.FromRgb(30, 31, 34));
-        private static readonly SolidColorBrush BgCard = new SolidColorBrush(Color.FromRgb(38, 39, 43));
-        private static readonly SolidColorBrush BgBtn = new SolidColorBrush(Color.FromRgb(48, 50, 56));
-        private static readonly SolidColorBrush FgText = new SolidColorBrush(Color.FromRgb(242, 242, 244));
-        private static readonly SolidColorBrush FgMuted = new SolidColorBrush(Color.FromRgb(154, 158, 166));
-        private static readonly SolidColorBrush AccentCyan = new SolidColorBrush(Color.FromRgb(76, 194, 255));
+        // Brushes (Ariakit Charcoal + Nilly Orange #FC961F palette)
+        private static readonly SolidColorBrush BgWindow = new SolidColorBrush(Color.FromRgb(29, 31, 32));   // #1D1F20
+        private static readonly SolidColorBrush BgBar = new SolidColorBrush(Color.FromRgb(34, 36, 38));      // #222426
+        private static readonly SolidColorBrush BgCard = new SolidColorBrush(Color.FromRgb(39, 41, 43));     // #27292B
+        private static readonly SolidColorBrush BgBtn = new SolidColorBrush(Color.FromRgb(39, 41, 43));      // #27292B
+        private static readonly SolidColorBrush BgDarkInk = new SolidColorBrush(Color.FromRgb(20, 21, 23));
+        private static readonly SolidColorBrush FgText = new SolidColorBrush(Color.FromRgb(242, 244, 247));
+        private static readonly SolidColorBrush FgMuted = new SolidColorBrush(Color.FromRgb(154, 160, 168));
         private static readonly SolidColorBrush AccentGreen = new SolidColorBrush(Color.FromRgb(166, 226, 46));
-        private static readonly SolidColorBrush AccentPink = new SolidColorBrush(Color.FromRgb(249, 38, 114));
-        private static readonly SolidColorBrush AccentAmber = new SolidColorBrush(Color.FromRgb(253, 151, 31));
-        private static readonly SolidColorBrush BorderSub = new SolidColorBrush(Color.FromRgb(54, 56, 62));
+        private static readonly SolidColorBrush AccentDanger = new SolidColorBrush(Color.FromRgb(240, 104, 118));
+        private static readonly SolidColorBrush AccentDangerBg = new SolidColorBrush(Color.FromRgb(46, 28, 32));
+        private static readonly SolidColorBrush AccentDangerBd = new SolidColorBrush(Color.FromRgb(116, 48, 58));
+        private static readonly SolidColorBrush AccentAmber = new SolidColorBrush(Color.FromRgb(252, 150, 31)); // #FC961F
+        private static readonly SolidColorBrush BorderSub = new SolidColorBrush(Color.FromRgb(54, 57, 61));     // #36393D
+
+        // Crisp 1.5px Vector Path Icons (Ariakit Minimal)
+        private const string ICO_PLAY = "M 3,2 L 12,7.5 L 3,13 Z";
+        private const string ICO_PAUSE = "M 4,2.5 L 4,12.5 M 10,2.5 L 10,12.5";
+        private const string ICO_STOP = "M 3,3 L 11,3 L 11,11 L 3,11 Z";
+        private const string ICO_PREV = "M 2.5,2.5 L 2.5,12.5 M 11.5,2.5 L 4.5,7.5 L 11.5,12.5 Z";
+        private const string ICO_NEXT = "M 11.5,2.5 L 11.5,12.5 M 2.5,2.5 L 9.5,7.5 L 2.5,12.5 Z";
+        private const string ICO_VOL = "M 2,5.5 L 5,5.5 L 9,2.5 L 9,12.5 L 5,9.5 L 2,9.5 Z M 11.5,5 C 13,6.5 13,8.5 11.5,10";
+        private const string ICO_MUTE = "M 2,5.5 L 5,5.5 L 9,2.5 L 9,12.5 L 5,9.5 L 2,9.5 Z M 11,5 L 14.5,10 M 14.5,5 L 11,10";
+        private const string ICO_FULL = "M 2,5.5 L 2,2 L 5.5,2 M 9.5,2 L 13,2 L 13,5.5 M 13,9.5 L 13,13 L 9.5,13 M 5.5,13 L 2,13 L 2,9.5";
+        private const string ICO_LIST = "M 2,3.5 L 13,3.5 M 2,7.5 L 13,7.5 M 2,11.5 L 10,11.5";
+        private const string ICO_PIN = "M 4,2.5 L 11,2.5 M 5,2.5 L 3.5,8 L 11.5,8 L 10,2.5 M 7.5,8 L 7.5,13.5";
+        private const string ICO_PLUS = "M 7.5,2.5 L 7.5,12.5 M 2.5,7.5 L 12.5,7.5";
+        private const string ICO_MIC = "M 5.5,4 A 2,2 0 0 1 9.5,4 L 9.5,7.5 A 2,2 0 0 1 5.5,7.5 Z M 3.5,7.5 A 4,4 0 0 0 11.5,7.5 M 7.5,11.5 L 7.5,13.8 M 5,13.8 L 10,13.8";
+        private const string ICO_FOLDER = "M 1.5,3.5 L 5.5,3.5 L 7,5 L 13.5,5 L 13.5,12.5 L 1.5,12.5 Z";
+        private const string ICO_LOOP = "M 11.5,4 L 4,4 A 2.5,2.5 0 0 0 1.5,6.5 L 1.5,7.5 M 9.5,2 L 11.5,4 L 9.5,6 M 3.5,11 L 11,11 A 2.5,2.5 0 0 0 13.5,8.5 L 13.5,7.5 M 5.5,9 L 3.5,11 L 5.5,13";
 
         // Top Bar
         private Grid _topBar;
@@ -318,18 +336,21 @@ namespace NillyMediaLite
             shell.RowDefinitions.Add(new RowDefinition { Height = new GridLength(42) });
             shell.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 
-            // 1. Top Slim Header Bar
+            // 1. Top Slim Ariakit Header Bar (bottom-indicator tabs + crisp vector icons)
+            Border topWrap = new Border { Background = BgBar, BorderBrush = BorderSub, BorderThickness = new Thickness(0, 0, 0, 1) };
             _topBar = new Grid { Background = BgBar };
             _topBar.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             _topBar.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             _topBar.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
             StackPanel leftBtns = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(8, 0, 8, 0) };
-            _btnModePlayer = MakeTopBtn("▶ Player", AccentCyan, true);
+            _btnModePlayer = MakeTabBtn(ICO_PLAY, "Player", true, true);
             _btnModePlayer.Click += delegate { SwitchMode(0); };
-            _btnModeRec = MakeTopBtn("● Recorder", AccentPink, false);
+            _btnModeRec = MakeTabBtn(ICO_MIC, "Recorder", false, false);
             _btnModeRec.Click += delegate { SwitchMode(1); };
-            Button btnOpen = MakeTopBtn("+ Open", FgText, false);
+            Button btnOpen = MakePillBtn(MakeIconLabel(ICO_PLUS, "Open", FgText, false), 0, false);
+            btnOpen.Padding = new Thickness(10, 4, 10, 4);
+            btnOpen.Margin = new Thickness(8, 0, 2, 0);
             btnOpen.Click += delegate { PromptOpenFiles(); };
             leftBtns.Children.Add(_btnModePlayer);
             leftBtns.Children.Add(_btnModeRec);
@@ -339,7 +360,7 @@ namespace NillyMediaLite
 
             _lblNowPlaying = new TextBlock
             {
-                Text = "Drop Video/Audio or click + Open",
+                Text = "Drop Video/Audio or click Open",
                 Foreground = FgMuted,
                 FontFamily = new FontFamily("Segoe UI"),
                 FontSize = 12,
@@ -351,11 +372,15 @@ namespace NillyMediaLite
             _topBar.Children.Add(_lblNowPlaying);
 
             StackPanel rightBtns = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(0, 0, 8, 0) };
-            _btnPlaylistToggle = MakeTopBtn("List", FgText, false);
+            _btnPlaylistToggle = MakePillBtn(MakeIconLabel(ICO_LIST, "List", FgText, false), 0, false);
+            _btnPlaylistToggle.Padding = new Thickness(9, 4, 9, 4);
+            _btnPlaylistToggle.ToolTip = "Playlist (P)";
             _btnPlaylistToggle.Click += delegate { TogglePlaylist(); };
-            _btnPin = MakeTopBtn("Pin", FgMuted, false);
+            _btnPin = MakePillBtn(MakeIcon(ICO_PIN, FgMuted, false), 30, false);
+            _btnPin.ToolTip = "Always on Top (T)";
             _btnPin.Click += delegate { TogglePin(); };
-            _btnFullscreen = MakeTopBtn("⛶", FgText, false);
+            _btnFullscreen = MakePillBtn(MakeIcon(ICO_FULL, FgText, false), 30, false);
+            _btnFullscreen.ToolTip = "Fullscreen (F11)";
             _btnFullscreen.Click += delegate { ToggleFullscreen(); };
             rightBtns.Children.Add(_btnPlaylistToggle);
             rightBtns.Children.Add(_btnPin);
@@ -363,8 +388,9 @@ namespace NillyMediaLite
             Grid.SetColumn(rightBtns, 2);
             _topBar.Children.Add(rightBtns);
 
-            Grid.SetRow(_topBar, 0);
-            shell.Children.Add(_topBar);
+            topWrap.Child = _topBar;
+            Grid.SetRow(topWrap, 0);
+            shell.Children.Add(topWrap);
 
             // 2. Content Host (Player + Recorder)
             Grid content = new Grid();
@@ -407,7 +433,7 @@ namespace NillyMediaLite
             _media.MediaFailed += delegate(object s, ExceptionRoutedEventArgs e)
             {
                 _isPlaying = false;
-                _btnPlay.Content = "▶";
+                _btnPlay.Content = MakeIcon(ICO_PLAY, BgDarkInk, true);
                 SyncTimerState();
                 _lblAudioTitle.Text = "Αδυναμία αναπαραγωγής αρχείου";
                 _lblAudioMeta.Text = e.ErrorException != null ? e.ErrorException.Message : "Μη υποστηριζόμενος codec.";
@@ -417,10 +443,12 @@ namespace NillyMediaLite
 
             // Minimal Audio/Empty Overlay
             _audioOverlay = new StackPanel { VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(24) };
-            TextBlock bigIcon = new TextBlock { Text = "▶", FontSize = 48, Foreground = AccentAmber, HorizontalAlignment = HorizontalAlignment.Center };
-            _lblAudioTitle = new TextBlock { Text = "NillyMedia Lite", FontSize = 20, FontWeight = FontWeights.SemiBold, Foreground = FgText, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 8, 0, 4), TextAlignment = TextAlignment.Center };
-            _lblAudioMeta = new TextBlock { Text = "Ρίξε βίντεο ή ήχο εδώ (MP4 · MOV · MKV · MP3 · WAV · FLAC) · 0 MB background RAM", FontSize = 12, Foreground = FgMuted, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
-            _audioOverlay.Children.Add(bigIcon);
+            Border heroBadge = new Border { Width = 64, Height = 64, CornerRadius = new CornerRadius(32), Background = BgBar, BorderBrush = BorderSub, BorderThickness = new Thickness(1), HorizontalAlignment = HorizontalAlignment.Center };
+            System.Windows.Shapes.Path bigIcon = new System.Windows.Shapes.Path { Data = Geometry.Parse(ICO_PLAY), Fill = AccentAmber, Width = 24, Height = 24, Stretch = Stretch.Uniform, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(4, 0, 0, 0) };
+            heroBadge.Child = bigIcon;
+            _lblAudioTitle = new TextBlock { Text = "NillyMedia Lite", FontSize = 20, FontWeight = FontWeights.SemiBold, Foreground = FgText, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 12, 0, 4), TextAlignment = TextAlignment.Center };
+            _lblAudioMeta = new TextBlock { Text = "Ρίξε βίντεο ή ήχο εδώ (MP4 · MOV · MKV · MP3 · WAV · FLAC) · 0 MB background RAM", FontSize = 12, Foreground = FgMuted, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center, TextWrapping = TextWrapping.Wrap };
+            _audioOverlay.Children.Add(heroBadge);
             _audioOverlay.Children.Add(_lblAudioTitle);
             _audioOverlay.Children.Add(_lblAudioMeta);
             videoGrid.Children.Add(_audioOverlay);
@@ -487,30 +515,32 @@ namespace NillyMediaLite
             btnRow.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
             StackPanel transport = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center };
-            Button bPrev = MakeCtrlBtn("⏮", 34); bPrev.Click += delegate { PlayPrev(); };
-            Button bBack = MakeCtrlBtn("-10s", 42); bBack.Click += delegate { SeekRelative(-10); };
-            _btnPlay = MakeCtrlBtn("▶", 44); _btnPlay.Background = AccentCyan; _btnPlay.Foreground = Brushes.Black; _btnPlay.FontWeight = FontWeights.Bold;
+            Button bPrev = MakePillBtn(MakeIcon(ICO_PREV, FgText, true), 34, false); bPrev.ToolTip = "Προηγούμενο"; bPrev.Click += delegate { PlayPrev(); };
+            Button bBack = MakePillBtn("-10s", 42, false); bBack.Click += delegate { SeekRelative(-10); };
+            _btnPlay = MakePillBtn(MakeIcon(ICO_PLAY, BgDarkInk, true), 46, true);
+            _btnPlay.ToolTip = "Play / Pause (Space)";
             _btnPlay.Click += delegate { TogglePlayPause(); };
-            Button bFwd = MakeCtrlBtn("+10s", 42); bFwd.Click += delegate { SeekRelative(10); };
-            Button bNext = MakeCtrlBtn("⏭", 34); bNext.Click += delegate { PlayNext(); };
-            Button bStop = MakeCtrlBtn("■", 34); bStop.Click += delegate { StopPlayback(); };
+            Button bFwd = MakePillBtn("+10s", 42, false); bFwd.Click += delegate { SeekRelative(10); };
+            Button bNext = MakePillBtn(MakeIcon(ICO_NEXT, FgText, true), 34, false); bNext.ToolTip = "Επόμενο"; bNext.Click += delegate { PlayNext(); };
+            Button bStop = MakePillBtn(MakeIcon(ICO_STOP, FgText, true), 34, false); bStop.ToolTip = "Stop"; bStop.Click += delegate { StopPlayback(); };
             transport.Children.Add(bPrev); transport.Children.Add(bBack); transport.Children.Add(_btnPlay);
             transport.Children.Add(bFwd); transport.Children.Add(bNext); transport.Children.Add(bStop);
             Grid.SetColumn(transport, 0);
             btnRow.Children.Add(transport);
 
             StackPanel rightCtrl = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center };
-            _btnSpeed = MakeCtrlBtn("1.0×", 46);
+            _btnSpeed = MakePillBtn("1.0×", 46, false);
             _btnSpeed.Click += delegate { CycleSpeed(); };
-            _btnLoop = MakeCtrlBtn("Loop", 46);
+            _btnLoop = MakePillBtn(MakeIconLabel(ICO_LOOP, "Loop", FgText, false), 62, false);
             _btnLoop.Click += delegate { ToggleLoop(); };
-            _btnMute = MakeCtrlBtn("♪", 34);
+            _btnMute = MakePillBtn(MakeIcon(ICO_VOL, FgText, false), 34, false);
+            _btnMute.ToolTip = "Mute (M)";
             _btnMute.Click += delegate { ToggleMute(); };
             _volSlider = new Slider { Minimum = 0, Maximum = 1, Value = 0.85, Width = 88, VerticalAlignment = VerticalAlignment.Center, IsMoveToPointEnabled = true };
             _volSlider.ValueChanged += delegate
             {
                 _media.Volume = _volSlider.Value;
-                if (_media.IsMuted && _volSlider.Value > 0) { _media.IsMuted = false; _btnMute.Content = "♪"; }
+                if (_media.IsMuted && _volSlider.Value > 0) { _media.IsMuted = false; _btnMute.Content = MakeIcon(ICO_VOL, FgText, false); }
             };
             rightCtrl.Children.Add(_btnSpeed); rightCtrl.Children.Add(_btnLoop); rightCtrl.Children.Add(_btnMute); rightCtrl.Children.Add(_volSlider);
             Grid.SetColumn(rightCtrl, 2);
@@ -544,18 +574,21 @@ namespace NillyMediaLite
             vuTrack.Child = _vuFill;
 
             StackPanel recBtns = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center };
-            _btnRecStartStop = new Button { Content = "● Record", Width = 140, Height = 38, Background = AccentPink, Foreground = Brushes.White, FontWeight = FontWeights.Bold, FontSize = 14, BorderThickness = new Thickness(0), Cursor = Cursors.Hand, Margin = new Thickness(4) };
+            _btnRecStartStop = MakePillBtn(MakeIconLabel(ICO_MIC, "Record", AccentDanger, false), 140, false);
+            _btnRecStartStop.Height = 36; _btnRecStartStop.Background = AccentDangerBg; _btnRecStartStop.BorderBrush = AccentDangerBd; _btnRecStartStop.Margin = new Thickness(4);
             _btnRecStartStop.Click += delegate { ToggleRecord(); };
 
-            _btnRecPause = new Button { Content = "❚❚ Pause", Width = 110, Height = 38, Background = BgBtn, Foreground = FgText, FontSize = 13, BorderThickness = new Thickness(0), Cursor = Cursors.Hand, Margin = new Thickness(4), IsEnabled = false };
+            _btnRecPause = MakePillBtn(MakeIconLabel(ICO_PAUSE, "Pause", FgText, false), 110, false);
+            _btnRecPause.Height = 36; _btnRecPause.Margin = new Thickness(4); _btnRecPause.IsEnabled = false;
             _btnRecPause.Click += delegate
             {
                 _rec.TogglePause();
-                _btnRecPause.Content = _rec.IsPaused ? "▶ Resume" : "❚❚ Pause";
+                _btnRecPause.Content = _rec.IsPaused ? MakeIconLabel(ICO_PLAY, "Resume", FgText, true) : MakeIconLabel(ICO_PAUSE, "Pause", FgText, false);
                 _lblRecStatus.Text = _rec.IsPaused ? "Σε παύση..." : "Ηχογράφηση σε εξέλιξη...";
             };
 
-            Button btnOpenRecDir = new Button { Content = "Open Folder", Width = 110, Height = 38, Background = BgBtn, Foreground = FgText, FontSize = 12, BorderThickness = new Thickness(0), Cursor = Cursors.Hand, Margin = new Thickness(4) };
+            Button btnOpenRecDir = MakePillBtn(MakeIconLabel(ICO_FOLDER, "Open Folder", FgText, false), 124, false);
+            btnOpenRecDir.Height = 36; btnOpenRecDir.Margin = new Thickness(4);
             btnOpenRecDir.Click += delegate
             {
                 Directory.CreateDirectory(RecordingsDir);
@@ -608,8 +641,10 @@ namespace NillyMediaLite
             bool isRec = (mode == 1);
             _playerRoot.Visibility = isRec ? Visibility.Collapsed : Visibility.Visible;
             _recorderRoot.Visibility = isRec ? Visibility.Visible : Visibility.Collapsed;
-            _btnModePlayer.Background = isRec ? Brushes.Transparent : BgBtn;
-            _btnModeRec.Background = isRec ? BgBtn : Brushes.Transparent;
+            _btnModePlayer.BorderBrush = isRec ? Brushes.Transparent : AccentAmber;
+            _btnModePlayer.Foreground = isRec ? FgMuted : FgText;
+            _btnModeRec.BorderBrush = isRec ? AccentAmber : Brushes.Transparent;
+            _btnModeRec.Foreground = isRec ? FgText : FgMuted;
             if (isRec) RefreshRecordingsList();
         }
 
@@ -621,11 +656,11 @@ namespace NillyMediaLite
                 string err;
                 if (_rec.Start(out err))
                 {
-                    _btnRecStartStop.Content = "■ Stop & Save";
+                    _btnRecStartStop.Content = MakeIconLabel(ICO_STOP, "Stop & Save", AccentDanger, true);
                     _btnRecPause.IsEnabled = true;
-                    _btnRecPause.Content = "❚❚ Pause";
-                    _lblRecStatus.Text = "● Ηχογράφηση σε εξέλιξη...";
-                    _lblRecStatus.Foreground = AccentPink;
+                    _btnRecPause.Content = MakeIconLabel(ICO_PAUSE, "Pause", FgText, false);
+                    _lblRecStatus.Text = "Ηχογράφηση σε εξέλιξη...";
+                    _lblRecStatus.Foreground = AccentDanger;
                     SyncTimerState();
                 }
                 else
@@ -640,7 +675,7 @@ namespace NillyMediaLite
                 string err;
                 bool ok = _rec.StopAndSave(file, out err);
                 SyncTimerState();
-                _btnRecStartStop.Content = "● Record";
+                _btnRecStartStop.Content = MakeIconLabel(ICO_MIC, "Record", AccentDanger, false);
                 _btnRecPause.IsEnabled = false;
                 _vuFill.Width = 0;
                 if (ok)
@@ -768,7 +803,7 @@ namespace NillyMediaLite
             _media.SpeedRatio = _speeds[_speedIdx];
             _media.Play();
             _isPlaying = true;
-            _btnPlay.Content = "❚❚";
+            _btnPlay.Content = MakeIcon(ICO_PAUSE, BgDarkInk, false);
             SyncTimerState();
         }
 
@@ -806,7 +841,7 @@ namespace NillyMediaLite
             else
             {
                 _isPlaying = false;
-                _btnPlay.Content = "▶";
+                _btnPlay.Content = MakeIcon(ICO_PLAY, BgDarkInk, true);
                 SyncTimerState();
             }
         }
@@ -814,8 +849,8 @@ namespace NillyMediaLite
         private void TogglePlayPause()
         {
             if (_playlist.Count == 0) { PromptOpenFiles(); return; }
-            if (_isPlaying) { _media.Pause(); _isPlaying = false; _btnPlay.Content = "▶"; }
-            else { _media.Play(); _isPlaying = true; _btnPlay.Content = "❚❚"; }
+            if (_isPlaying) { _media.Pause(); _isPlaying = false; _btnPlay.Content = MakeIcon(ICO_PLAY, BgDarkInk, true); }
+            else { _media.Play(); _isPlaying = true; _btnPlay.Content = MakeIcon(ICO_PAUSE, BgDarkInk, false); }
             SyncTimerState();
         }
 
@@ -823,7 +858,7 @@ namespace NillyMediaLite
         {
             try { _media.Stop(); } catch { }
             _isPlaying = false;
-            _btnPlay.Content = "▶";
+            _btnPlay.Content = MakeIcon(ICO_PLAY, BgDarkInk, true);
             _seekSlider.Value = 0;
             _lblTimeCur.Text = "00:00";
             SyncTimerState();
@@ -849,13 +884,14 @@ namespace NillyMediaLite
         private void ToggleLoop()
         {
             _isLoop = !_isLoop;
-            _btnLoop.Foreground = _isLoop ? AccentGreen : FgText;
+            _btnLoop.Content = MakeIconLabel(ICO_LOOP, "Loop", _isLoop ? AccentAmber : FgText, false);
+            _btnLoop.BorderBrush = _isLoop ? AccentAmber : BorderSub;
         }
 
         private void ToggleMute()
         {
             _media.IsMuted = !_media.IsMuted;
-            _btnMute.Content = _media.IsMuted ? "×" : "♪";
+            _btnMute.Content = MakeIcon(_media.IsMuted ? ICO_MUTE : ICO_VOL, _media.IsMuted ? AccentAmber : FgText, false);
         }
 
         private void TogglePlaylist()
@@ -866,7 +902,8 @@ namespace NillyMediaLite
         private void TogglePin()
         {
             this.Topmost = !this.Topmost;
-            _btnPin.Foreground = this.Topmost ? AccentAmber : FgMuted;
+            _btnPin.Content = MakeIcon(ICO_PIN, this.Topmost ? AccentAmber : FgMuted, false);
+            _btnPin.BorderBrush = this.Topmost ? AccentAmber : BorderSub;
         }
 
         private void ToggleFullscreen()
@@ -926,15 +963,70 @@ namespace NillyMediaLite
                 : string.Format("{0:00}:{1:00}", (int)t.TotalMinutes, t.Seconds);
         }
 
-        private static Button MakeTopBtn(string text, Brush fg, bool active)
+        private static UIElement MakeIcon(string data, Brush brush, bool filled)
+        {
+            System.Windows.Shapes.Path p = new System.Windows.Shapes.Path
+            {
+                Data = Geometry.Parse(data),
+                Width = 14,
+                Height = 14,
+                Stretch = Stretch.Uniform,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            if (filled)
+            {
+                p.Fill = brush;
+            }
+            else
+            {
+                p.Stroke = brush;
+                p.StrokeThickness = 1.5;
+                p.StrokeStartLineCap = PenLineCap.Round;
+                p.StrokeEndLineCap = PenLineCap.Round;
+                p.StrokeLineJoin = PenLineJoin.Round;
+            }
+            return p;
+        }
+
+        private static UIElement MakeIconLabel(string data, string text, Brush fg, bool filled)
+        {
+            StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center };
+            UIElement ic = MakeIcon(data, fg, filled);
+            if (ic is FrameworkElement) ((FrameworkElement)ic).Margin = new Thickness(0, 0, 6, 0);
+            sp.Children.Add(ic);
+            sp.Children.Add(new TextBlock { Text = text, Foreground = fg, VerticalAlignment = VerticalAlignment.Center });
+            return sp;
+        }
+
+        private static ControlTemplate MakeRoundedTemplate(CornerRadius cr, Thickness borderTh)
+        {
+            ControlTemplate ct = new ControlTemplate(typeof(Button));
+            FrameworkElementFactory bd = new FrameworkElementFactory(typeof(Border));
+            bd.Name = "bd";
+            bd.SetValue(Border.CornerRadiusProperty, cr);
+            bd.SetValue(Border.BackgroundProperty, new TemplateBindingExtension(Button.BackgroundProperty));
+            bd.SetValue(Border.BorderBrushProperty, new TemplateBindingExtension(Button.BorderBrushProperty));
+            bd.SetValue(Border.BorderThicknessProperty, borderTh);
+            bd.SetValue(Border.PaddingProperty, new TemplateBindingExtension(Button.PaddingProperty));
+            FrameworkElementFactory cp = new FrameworkElementFactory(typeof(ContentPresenter));
+            cp.SetValue(ContentPresenter.HorizontalAlignmentProperty, HorizontalAlignment.Center);
+            cp.SetValue(ContentPresenter.VerticalAlignmentProperty, VerticalAlignment.Center);
+            bd.AppendChild(cp);
+            ct.VisualTree = bd;
+            return ct;
+        }
+
+        private static Button MakeTabBtn(string iconData, string label, bool active, bool filled)
         {
             return new Button
             {
-                Content = text,
-                Foreground = fg,
-                Background = active ? BgBtn : Brushes.Transparent,
-                BorderThickness = new Thickness(0),
-                Padding = new Thickness(10, 4, 10, 4),
+                Content = MakeIconLabel(iconData, label, active ? FgText : FgMuted, filled),
+                Foreground = active ? FgText : FgMuted,
+                Background = Brushes.Transparent,
+                BorderBrush = active ? AccentAmber : Brushes.Transparent,
+                Template = MakeRoundedTemplate(new CornerRadius(0), new Thickness(0, 0, 0, 2.5)),
+                Padding = new Thickness(12, 8, 12, 8),
                 Margin = new Thickness(2, 0, 2, 0),
                 FontSize = 12,
                 FontWeight = FontWeights.SemiBold,
@@ -942,20 +1034,23 @@ namespace NillyMediaLite
             };
         }
 
-        private static Button MakeCtrlBtn(string text, double width)
+        private static Button MakePillBtn(object content, double width, bool primary)
         {
-            return new Button
+            Button b = new Button
             {
-                Content = text,
-                Width = width,
+                Content = content,
                 Height = 30,
-                Background = BgBtn,
-                Foreground = FgText,
-                BorderThickness = new Thickness(0),
+                Background = primary ? AccentAmber : BgBtn,
+                Foreground = primary ? BgDarkInk : FgText,
+                BorderBrush = primary ? AccentAmber : BorderSub,
+                Template = MakeRoundedTemplate(new CornerRadius(6), new Thickness(1)),
                 Margin = new Thickness(2, 0, 2, 0),
                 FontSize = 12,
+                FontWeight = primary ? FontWeights.Bold : FontWeights.SemiBold,
                 Cursor = Cursors.Hand
             };
+            if (width > 0) b.Width = width;
+            return b;
         }
     }
 
@@ -972,7 +1067,7 @@ namespace NillyMediaLite
                 return RunSmokeTest(app, args.Length > 1 ? args[1] : null);
 
             MainWindow win = new MainWindow(args);
-            win.Loaded += delegate { Native.TrimMemory(); };
+            win.Loaded += delegate { Native.TrimMemory(); SuiteUpdater.AttachWpf(win, "nillymedia-lite", "NillyMedia-Lite", "Install_NillyMediaLite.ps1"); };
             app.Run(win);
             return 0;
         }
@@ -1028,6 +1123,329 @@ namespace NillyMediaLite
                 for (int i = 0; i < samples; i++)
                     bw.Write((short)(Math.Sin(2.0 * Math.PI * 440.0 * i / sampleRate) * 8000));
             }
+        }
+    }
+
+    internal static class SuiteUpdater
+    {
+        public static void AttachWpf(System.Windows.Window win, string repoName, string pkgPrefix, string installerScript)
+        {
+            if (win == null) return;
+            System.Threading.Thread th = new System.Threading.Thread(delegate()
+            {
+                try
+                {
+                    System.Threading.Thread.Sleep(2200);
+                    string curTag, newTag;
+                    if (!CheckForUpdate(repoName, out curTag, out newTag)) return;
+                    win.Dispatcher.BeginInvoke((System.Action)delegate
+                    {
+                        System.Windows.Controls.Grid g = win.Content as System.Windows.Controls.Grid;
+                        if (g == null) return;
+                        g.RowDefinitions.Insert(0, new System.Windows.Controls.RowDefinition { Height = System.Windows.GridLength.Auto });
+                        for (int i = 0; i < g.Children.Count; i++)
+                            System.Windows.Controls.Grid.SetRow(g.Children[i], System.Windows.Controls.Grid.GetRow(g.Children[i]) + 1);
+
+                        System.Windows.Controls.Border bar = new System.Windows.Controls.Border
+                        {
+                            Height = 28,
+                            Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(40, 29, 18)),
+                            BorderBrush = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(252, 150, 31)),
+                            BorderThickness = new System.Windows.Thickness(0, 0, 0, 1),
+                            Padding = new System.Windows.Thickness(10, 0, 8, 0)
+                        };
+                        System.Windows.Controls.DockPanel dp = new System.Windows.Controls.DockPanel { LastChildFill = true };
+                        System.Windows.Controls.Button btnX = new System.Windows.Controls.Button
+                        {
+                            Content = "×", Width = 24, Background = System.Windows.Media.Brushes.Transparent,
+                            Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(200, 170, 130)),
+                            BorderThickness = new System.Windows.Thickness(0), Cursor = System.Windows.Input.Cursors.Hand,
+                            FontWeight = System.Windows.FontWeights.Bold
+                        };
+                        System.Windows.Controls.DockPanel.SetDock(btnX, System.Windows.Controls.Dock.Right);
+                        btnX.Click += delegate { bar.Visibility = System.Windows.Visibility.Collapsed; };
+
+                        System.Windows.Controls.Button btnU = new System.Windows.Controls.Button
+                        {
+                            Content = "Ενημέρωση", Width = 88, Height = 22, Margin = new System.Windows.Thickness(6, 0, 4, 0),
+                            Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(252, 150, 31)),
+                            Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(20, 22, 26)),
+                            BorderThickness = new System.Windows.Thickness(0), Cursor = System.Windows.Input.Cursors.Hand,
+                            FontWeight = System.Windows.FontWeights.Bold, FontSize = 11.5
+                        };
+                        System.Windows.Controls.DockPanel.SetDock(btnU, System.Windows.Controls.Dock.Right);
+
+                        System.Windows.Controls.TextBlock lbl = new System.Windows.Controls.TextBlock
+                        {
+                            Text = "Νέα έκδοση " + newTag + " διαθέσιμη (έχεις " + curTag + ")",
+                            Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 185, 95)),
+                            VerticalAlignment = System.Windows.VerticalAlignment.Center, FontSize = 12
+                        };
+                        btnU.Click += delegate
+                        {
+                            btnU.IsEnabled = false; btnU.Content = "Λήψη...";
+                            System.Threading.Thread uth = new System.Threading.Thread(delegate()
+                            {
+                                try
+                                {
+                                    ApplySelfUpdate(repoName, pkgPrefix, installerScript,
+                                        delegate(string st) { try { win.Dispatcher.BeginInvoke((System.Action)delegate { lbl.Text = st; }); } catch { } },
+                                        delegate { try { win.Dispatcher.BeginInvoke((System.Action)delegate { win.Close(); }); } catch { } });
+                                }
+                                catch (System.Exception ex)
+                                {
+                                    try { win.Dispatcher.BeginInvoke((System.Action)delegate { lbl.Text = "Σφάλμα: " + ex.Message; btnU.Content = "Ενημέρωση"; btnU.IsEnabled = true; }); } catch { }
+                                }
+                            });
+                            uth.IsBackground = true; uth.Start();
+                        };
+                        dp.Children.Add(btnX); dp.Children.Add(btnU); dp.Children.Add(lbl);
+                        bar.Child = dp;
+                        System.Windows.Controls.Grid.SetRow(bar, 0);
+                        g.Children.Add(bar);
+                    });
+                }
+                catch { }
+            });
+            th.IsBackground = true; th.Start();
+        }
+        private const string CATALOG_URL = "https://raw.githubusercontent.com/nillynp/nillyhub/main/catalog.json";
+
+        private static bool TryParseVer(string raw, out System.Version ver)
+        {
+            ver = null;
+            if (string.IsNullOrEmpty(raw)) return false;
+            string s = raw.Trim();
+            if (s.StartsWith("v", System.StringComparison.OrdinalIgnoreCase)) s = s.Substring(1);
+            string[] p = s.Split('.');
+            if (p.Length < 2 || p.Length > 4) return false;
+            int maj, min, pat = 0;
+            if (!int.TryParse(p[0], System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out maj)) return false;
+            if (!int.TryParse(p[1], System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out min)) return false;
+            if (p.Length >= 3 && !int.TryParse(p[2], System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out pat)) return false;
+            ver = new System.Version(maj, min, pat, 0);
+            return true;
+        }
+
+        private static string FmtVer(System.Version v)
+        {
+            return v.Build > 0
+                ? string.Format(System.Globalization.CultureInfo.InvariantCulture, "v{0}.{1}.{2}", v.Major, v.Minor, v.Build)
+                : string.Format(System.Globalization.CultureInfo.InvariantCulture, "v{0}.{1}", v.Major, v.Minor);
+        }
+
+        public static bool CheckForUpdate(string repoName, out string curTag, out string newTag)
+        {
+            curTag = null; newTag = null;
+            System.Version rawCur = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            System.Version curVer = new System.Version(rawCur.Major, rawCur.Minor, rawCur.Build >= 0 ? rawCur.Build : 0, 0);
+            curTag = FmtVer(curVer);
+
+            string suiteDir = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "NillySuite");
+            string cachePath = System.IO.Path.Combine(suiteDir, ".nillyhub_catalog.json");
+            string json = null;
+            try
+            {
+                if (System.IO.File.Exists(cachePath))
+                {
+                    System.DateTime wt = System.IO.File.GetLastWriteTimeUtc(cachePath);
+                    if ((System.DateTime.UtcNow - wt).TotalHours < 24.0)
+                    {
+                        string cached = System.IO.File.ReadAllText(cachePath, System.Text.Encoding.UTF8);
+                        if (cached.IndexOf("\"latestVersion\"", System.StringComparison.Ordinal) >= 0) json = cached;
+                    }
+                }
+            }
+            catch { }
+
+            if (string.IsNullOrEmpty(json))
+            {
+                json = HttpGetText(CATALOG_URL, 5000);
+                if (string.IsNullOrEmpty(json) || json.Length > 256 * 1024) return false;
+                try
+                {
+                    System.IO.Directory.CreateDirectory(suiteDir);
+                    System.IO.File.WriteAllText(cachePath, json, new System.Text.UTF8Encoding(false));
+                }
+                catch { }
+            }
+
+            System.Text.RegularExpressions.Match m = System.Text.RegularExpressions.Regex.Match(
+                json,
+                "\"repo\"\\s*:\\s*\"" + System.Text.RegularExpressions.Regex.Escape(repoName) + "\"[^\\}]{0,500}?\"latestVersion\"\\s*:\\s*\"(v[0-9]+\\.[0-9]+(?:\\.[0-9]+)?)\"",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+            if (!m.Success) return false;
+            System.Version remVer;
+            if (!TryParseVer(m.Groups[1].Value, out remVer) || remVer <= curVer) return false;
+            newTag = FmtVer(remVer);
+            return true;
+        }
+
+        private static string HttpGetText(string url, int timeoutMs)
+        {
+            try { System.Net.ServicePointManager.SecurityProtocol |= (System.Net.SecurityProtocolType)3072 | System.Net.SecurityProtocolType.Tls12; } catch { }
+            System.Net.HttpWebRequest req = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+            req.UserAgent = "NillySuite-Updater/1.0 (https://nillygraphics.com/)";
+            req.Accept = "application/vnd.github+json, application/json";
+            req.AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate;
+            req.Timeout = timeoutMs;
+            req.ReadWriteTimeout = timeoutMs;
+            using (System.Net.HttpWebResponse resp = (System.Net.HttpWebResponse)req.GetResponse())
+            using (System.IO.Stream st = resp.GetResponseStream())
+            using (System.IO.StreamReader sr = new System.IO.StreamReader(st, System.Text.Encoding.UTF8))
+                return sr.ReadToEnd();
+        }
+
+        private static string ExtractAssetBlock(string json, string assetName)
+        {
+            System.Text.RegularExpressions.Match m = System.Text.RegularExpressions.Regex.Match(
+                json, "\"name\"\\s*:\\s*\"" + System.Text.RegularExpressions.Regex.Escape(assetName) + "\"");
+            if (!m.Success) return null;
+            int start = m.Index;
+            int depth = 0;
+            while (start > 0)
+            {
+                char c = json[start];
+                if (c == '}') depth++;
+                else if (c == '{') { if (depth == 0) break; depth--; }
+                start--;
+            }
+            int end = start;
+            depth = 0;
+            bool inStr = false;
+            for (int i = start; i < json.Length; i++)
+            {
+                char c = json[i];
+                if (c == '"' && (i == 0 || json[i - 1] != '\\')) inStr = !inStr;
+                if (inStr) continue;
+                if (c == '{') depth++;
+                else if (c == '}') { depth--; if (depth == 0) { end = i; break; } }
+            }
+            return end > start ? json.Substring(start, end - start + 1) : null;
+        }
+
+        public static void ApplySelfUpdate(string repoName, string pkgPrefix, string installerScript, System.Action<string> onStatus, System.Action onExit)
+        {
+            string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string appDir = System.IO.Path.GetDirectoryName(exePath);
+            if (System.IO.Directory.Exists(System.IO.Path.Combine(appDir, ".git")))
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://github.com/nillynp/" + repoName + "/releases/latest") { UseShellExecute = true });
+                if (onStatus != null) onStatus("Άνοιξε το GitHub Release (φάκελος Git).");
+                return;
+            }
+
+            if (onStatus != null) onStatus("Έλεγχος SHA-256 στο GitHub...");
+            string relJson = HttpGetText("https://api.github.com/repos/nillynp/" + repoName + "/releases/latest", 12000);
+            if (string.IsNullOrEmpty(relJson)) throw new System.IO.InvalidDataException("Κενή απόκριση GitHub.");
+            if (System.Text.RegularExpressions.Regex.IsMatch(relJson, "\"draft\"\\s*:\\s*true") ||
+                System.Text.RegularExpressions.Regex.IsMatch(relJson, "\"prerelease\"\\s*:\\s*true"))
+                throw new System.IO.InvalidDataException("Μη σταθερή έκδοση.");
+
+            System.Text.RegularExpressions.Match tm = System.Text.RegularExpressions.Regex.Match(relJson, "\"tag_name\"\\s*:\\s*\"(v[0-9]+\\.[0-9]+(?:\\.[0-9]+)?)\"");
+            if (!tm.Success) throw new System.IO.InvalidDataException("Μη έγκυρο tag έκδοσης.");
+            string tag = tm.Groups[1].Value;
+
+            System.Version curRaw = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            System.Version curVer = new System.Version(curRaw.Major, curRaw.Minor, curRaw.Build >= 0 ? curRaw.Build : 0, 0);
+            System.Version remVer;
+            if (!TryParseVer(tag, out remVer) || remVer <= curVer)
+                throw new System.InvalidOperationException("Έχεις ήδη την τελευταία έκδοση.");
+
+            string zipName = pkgPrefix + "-" + tag + "-Portable.zip";
+            string expectedUrl = "https://github.com/nillynp/" + repoName + "/releases/download/" + tag + "/" + zipName;
+            string blk = ExtractAssetBlock(relJson, zipName);
+            if (string.IsNullOrEmpty(blk)) throw new System.IO.FileNotFoundException("Δεν βρέθηκε το Portable ZIP.");
+            if (!System.Text.RegularExpressions.Regex.IsMatch(blk, "\"state\"\\s*:\\s*\"uploaded\""))
+                throw new System.IO.InvalidDataException("Το αρχείο δεν είναι έτοιμο.");
+            System.Text.RegularExpressions.Match um = System.Text.RegularExpressions.Regex.Match(blk, "\"browser_download_url\"\\s*:\\s*\"([^\"]+)\"");
+            if (!um.Success || !string.Equals(um.Groups[1].Value, expectedUrl, System.StringComparison.Ordinal))
+                throw new System.IO.InvalidDataException("Μη έγκυρο URL λήψης.");
+            System.Text.RegularExpressions.Match dm = System.Text.RegularExpressions.Regex.Match(blk, "\"digest\"\\s*:\\s*\"sha256:([0-9a-f]{64})\"");
+            if (!dm.Success) throw new System.IO.InvalidDataException("Απουσιάζει SHA-256.");
+            string expectedSha = dm.Groups[1].Value;
+
+            string tmpDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "NillyUpd-" + System.Guid.NewGuid().ToString("N"));
+            System.IO.Directory.CreateDirectory(tmpDir);
+            string zipFile = System.IO.Path.Combine(tmpDir, "pkg.zip");
+
+            if (onStatus != null) onStatus("Λήψη " + tag + "...");
+            try { System.Net.ServicePointManager.SecurityProtocol |= (System.Net.SecurityProtocolType)3072 | System.Net.SecurityProtocolType.Tls12; } catch { }
+            System.Net.HttpWebRequest dreq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(expectedUrl);
+            dreq.UserAgent = "NillySuite-Updater/1.0 (https://nillygraphics.com/)";
+            dreq.Timeout = 20000;
+            dreq.ReadWriteTimeout = 30000;
+            using (System.Net.HttpWebResponse dresp = (System.Net.HttpWebResponse)dreq.GetResponse())
+            using (System.IO.Stream src = dresp.GetResponseStream())
+            using (System.IO.FileStream dst = new System.IO.FileStream(zipFile, System.IO.FileMode.Create, System.IO.FileAccess.Write, System.IO.FileShare.None))
+            {
+                byte[] buf = new byte[16384];
+                int n; long total = 0;
+                while ((n = src.Read(buf, 0, buf.Length)) > 0)
+                {
+                    total += n;
+                    if (total > 32L * 1024L * 1024L) throw new System.IO.InvalidDataException("Υπέρβαση μεγέθους ZIP.");
+                    dst.Write(buf, 0, n);
+                }
+            }
+
+            if (onStatus != null) onStatus("Επαλήθευση SHA-256...");
+            string actualSha;
+            using (System.Security.Cryptography.SHA256 sha = System.Security.Cryptography.SHA256.Create())
+            using (System.IO.FileStream fs = System.IO.File.OpenRead(zipFile))
+            {
+                byte[] hash = sha.ComputeHash(fs);
+                System.Text.StringBuilder sb = new System.Text.StringBuilder(64);
+                for (int i = 0; i < hash.Length; i++) sb.Append(hash[i].ToString("x2", System.Globalization.CultureInfo.InvariantCulture));
+                actualSha = sb.ToString();
+            }
+            if (!string.Equals(actualSha, expectedSha, System.StringComparison.OrdinalIgnoreCase))
+            {
+                try { System.IO.Directory.Delete(tmpDir, true); } catch { }
+                throw new System.IO.InvalidDataException("Αποτυχία ελέγχου SHA-256.");
+            }
+
+            if (onStatus != null) onStatus("Εγκατάσταση " + tag + " & επανεκκίνηση...");
+            string ps1 = System.IO.Path.Combine(tmpDir, "apply.ps1");
+            string script =
+                "param($myPid,$zip,$appDir,$instName,$exePath,$tag)\r\n" +
+                "for($i=0;$i -lt 60;$i++){ if(-not (Get-Process -Id $myPid -ErrorAction SilentlyContinue)){break}; Start-Sleep -Milliseconds 150 }\r\n" +
+                "Add-Type -AssemblyName System.IO.Compression.FileSystem\r\n" +
+                "$za = [System.IO.Compression.ZipFile]::OpenRead($zip)\r\n" +
+                "try {\r\n" +
+                "  $pref = $null; $shared = $true\r\n" +
+                "  foreach($e in $za.Entries){ $fn=$e.FullName -replace '\\\\','/'; $sl=$fn.IndexOf('/'); if($sl -le 0){$shared=$false;break}; $p=$fn.Substring(0,$sl+1); if(-not $pref){$pref=$p}elseif(-not $pref.Equals($p,[StringComparison]::OrdinalIgnoreCase)){$shared=$false;break} }\r\n" +
+                "  $rootFull = [System.IO.Path]::GetFullPath($appDir).TrimEnd('\\') + '\\'\r\n" +
+                "  foreach($e in $za.Entries){\r\n" +
+                "    $rel = $e.FullName -replace '\\\\','/'\r\n" +
+                "    if($shared -and $pref -and $rel.StartsWith($pref,[StringComparison]::OrdinalIgnoreCase)){ $rel=$rel.Substring($pref.Length) }\r\n" +
+                "    if([string]::IsNullOrEmpty($rel) -or $rel.EndsWith('/') -or $rel.Contains(':')){ continue }\r\n" +
+                "    $dst = [System.IO.Path]::GetFullPath((Join-Path $appDir ($rel -replace '/','\\')))\r\n" +
+                "    if(-not $dst.StartsWith($rootFull,[StringComparison]::OrdinalIgnoreCase)){ continue }\r\n" +
+                "    $par = Split-Path -Parent $dst; if($par){ New-Item -ItemType Directory -Force -Path $par | Out-Null }\r\n" +
+                "    for($k=0;$k -lt 5;$k++){ try { [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e,$dst,$true); break } catch { Start-Sleep -Milliseconds 250 } }\r\n" +
+                "  }\r\n" +
+                "} finally { $za.Dispose() }\r\n" +
+                "$bak = $exePath + '.bak'\r\n" +
+                "if(Test-Path $exePath){ Copy-Item -LiteralPath $exePath -Destination $bak -Force -ErrorAction SilentlyContinue; for($k=0;$k -lt 5;$k++){ try { Remove-Item -LiteralPath $exePath -Force -ErrorAction Stop; break } catch { Start-Sleep -Milliseconds 250 } } }\r\n" +
+                "Get-ChildItem (Join-Path $appDir 'desktop') -Filter '*.cs' -ErrorAction SilentlyContinue | ForEach-Object { $_.LastWriteTimeUtc = [DateTime]::UtcNow }\r\n" +
+                "if($instName -and (Test-Path (Join-Path $appDir $instName))){ & (Join-Path $appDir $instName) -Silent 2>$null | Out-Null }\r\n" +
+                "if(-not (Test-Path $exePath) -and (Test-Path $bak)){ Move-Item -LiteralPath $bak -Destination $exePath -Force -ErrorAction SilentlyContinue } else { Remove-Item -LiteralPath $bak -Force -ErrorAction SilentlyContinue }\r\n" +
+                "if($tag){ Set-Content -LiteralPath (Join-Path $appDir '.nilly_version') -Value $tag -Encoding UTF8 -ErrorAction SilentlyContinue }\r\n" +
+                "if(Test-Path $exePath){ Start-Process -FilePath $exePath -WorkingDirectory $appDir }\r\n" +
+                "Start-Sleep -Milliseconds 400\r\n" +
+                "Remove-Item -LiteralPath (Split-Path $zip) -Recurse -Force -ErrorAction SilentlyContinue\r\n";
+            System.IO.File.WriteAllText(ps1, script, new System.Text.UTF8Encoding(false));
+
+            int myPid = System.Diagnostics.Process.GetCurrentProcess().Id;
+            System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo(
+                "powershell.exe",
+                "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File \"" + ps1 + "\" " +
+                myPid + " \"" + zipFile + "\" \"" + appDir + "\" \"" + installerScript + "\" \"" + exePath + "\" \"" + tag + "\"");
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+            System.Diagnostics.Process.Start(psi);
+            if (onExit != null) onExit();
         }
     }
 }
